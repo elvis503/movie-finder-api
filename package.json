@@ -4,6 +4,7 @@
   "description": "Movie Finder App User API",
   "main": "app.js",
   "scripts": {
+    "start": "node src/app.js",
     "dev": "env-cmd ./config/dev.env nodemon src/app.js"
   },
   "author": "",
