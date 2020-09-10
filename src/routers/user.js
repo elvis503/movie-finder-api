@@ -2,6 +2,7 @@ const express = require("express");
 const User = require("../models/user.js");
 const auth = require("../middleware/auth.js");
 const verifySignUp = require("../middleware/verifySignUp.js")
+const cors = require("cors");
 
 const router = new express.Router();
 
@@ -19,7 +20,7 @@ router.post("/user/create", verifySignUp, async (req, res) => {
 })
 
 //Log In User
-router.post("/user/login", async (req, res) => {
+router.post("/user/login", cors(), async (req, res) => {
     try{
         const user = await User.findByCredentials(req.body.username, req.body.password);
         const token = await user.generateAuthToken();
