@@ -43,11 +43,11 @@ const userSchema = new mongoose.Schema({
      }],
 })
 //Find user by credentials, if exists and its correct log user
-userSchema.statics.findByCredentials = async (email, password) => {
-    const user = await User.findOne({email});
+userSchema.statics.findByCredentials = async (username, password) => {
+    const user = await User.findOne({username});
     
     if(!user){
-        throw new Error("Unable to find user with this email");
+        throw new Error("Unable to find user with this username");
     }
 
     //Check HASHED PW
